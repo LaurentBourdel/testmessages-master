@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2020_05_14_183634) do
     t.text "description"
     t.integer "price"
     t.string "location"
+    t.integer "manager_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_events_on_manager_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,11 +41,13 @@ ActiveRecord::Schema.define(version: 2020_05_14_183634) do
     t.text "description"
     t.string "first_name"
     t.string "last_name"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.index ["admin_id"], name: "index_users_on_admin_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

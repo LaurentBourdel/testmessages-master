@@ -29,10 +29,10 @@
                 <% if user_signed_in?  %>
                   <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Mon profil
+                      My profil
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      
+                      <%= link_to "  My profil", user_path(current_user.id), class: "nav-link" %>
                       <%= link_to "Sign out", destroy_user_session_path, class: "dropdown-item" %>
                     </div>
                   </div>

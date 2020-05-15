@@ -1,17 +1,19 @@
 class Event < ApplicationRecord
 
+  #belongs_to :admin, class_name: 'User'
+  belongs_to :manager, class_name: "User", required: false
 	has_many :attendances
   has_many :users, through: :attendances
 
   #validate :duration_modulo_5
 	#validate :start_date_cannot_be_in_the_past
 
-  #validates :start_date, presence: true 
-  #validates :duration, presence: true
-  #validates :description, presence: true, length: { in: 20..1000, message: "20 char. min & 1000 char. max"} 
-  #validates :title, presence: true, length: { in: 5..140, message: "5 char. min & 140 char. max"} 
-  #validates :price, presence: true, numericality: { in: 1..1000, }
-  #validates :location, presence: true
+  validates :start_date, presence: true 
+  validates :duration, presence: true
+  validates :description, presence: true, length: { in: 1..1000, message: "1 char. min & 1000 char. max"} 
+  validates :title, presence: true, length: { in: 1..140, message: "1 char. min & 140 char. max"} 
+  validates :price, presence: true, numericality: { in: 1..1000, }
+  validates :location, presence: true
 
 end
 

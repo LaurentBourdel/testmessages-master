@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :price
       t.string :location
-     # t.references :admin, index: true
+      t.references :manager, index: true
       t.timestamps
     end
   end

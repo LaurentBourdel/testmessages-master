@@ -1,0 +1,45 @@
+
+<br>
+<div class="row justify-content-center">
+ <h3>Mon profil<h3>
+ </div>
+<br>
+
+
+<div class="jumbotron bg_img text-dark">
+  <div class="row justify-content-center">
+<div class="card" style="width: 30rem;">
+  <div class="card-header">
+   User n° : <%= @user.id %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email : <%= @user.email %></li>
+    <li class="list-group-item">Prénom : <%= @user.first_name %> </li>
+    <li class="list-group-item">Nom : <%= @user.last_name %> </li>
+    <li class="list-group-item">Description : <%= @user.description%> </li>
+    <%= link_to "Éditer ton profil", edit_user_path , class:"btn btn-outline-dark" %> 
+  </ul>
+</div>
+</div>
+</div>
+
+<h3>Voici tous les évènements créé par <%= @user.first_name %></h3>
+
+<div class="row">
+  <% @user_events.each do |event| %>
+    <div class="col-sm-6" style="padding: 30px">
+      <div class="card">
+        <div class="card-header">
+          <h4><%= event.title %></h4>
+          
+          <div class="card-body">
+          <h5><%= event.description %></h5>
+          
+          <%= link_to "En savoir plus...", event_path(event.id), class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

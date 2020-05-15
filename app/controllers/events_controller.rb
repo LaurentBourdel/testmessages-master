@@ -13,7 +13,13 @@ class EventsController < ApplicationController
   end 
     
   def create
-    @event = Event.new(title: params[:title], location: params[:location], price: params[:price], description: params[:description], start_date: params[:start_date], duration: params[:duration])
+		@event = Event.new('title' => params[:title], 
+      'description' => params[:description],
+      'duration' => params[:duration],
+      'start_date' => params[:start_date],
+      'price' => params[:price],
+      'location' => params[:location],
+      'manager_id' => current_user.id)
 
     if @event.save
       flash[:success] = "Event successfully created"
