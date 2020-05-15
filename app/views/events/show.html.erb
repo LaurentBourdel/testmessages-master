@@ -1,0 +1,18 @@
+
+<div class="jumbotron bg_img text-dark">
+  <div class="row justify-content-center">
+    <div class="card" style="width: 30rem;">
+      <div class="card-header">
+        Event n°<%= @event.id %>
+      </div>
+      <ul class="list-group list-group-flush">
+        
+        <li class="list-group-item">Nom : <%= @event.title %></li>
+        <li class="list-group-item">Localisation : <%= @event.location %> </li>
+        <li class="list-group-item">Date: <%= @event.start_date %> </li>
+        <li class="list-group-item">Description : <%= @event.description%> </li>
+        <li class="list-group-item">Prix : <%= @event.price%> €</li>
+      </ul>
+    </div>
+  </div>
+</div>

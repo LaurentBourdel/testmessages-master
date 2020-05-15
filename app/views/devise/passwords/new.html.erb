@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <br>
+    <h1 class="display-4"><center>Forgot your password?</center></h1>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <br>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit "Change pwd", class: "nav-link" %>
+        </div>
+        <p class="lead"></p>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+      <br>
+    </div>
+  </div>
+  </div>
+</div>
